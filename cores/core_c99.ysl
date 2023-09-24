@@ -1,6 +1,7 @@
 # YSL-C3 core library for C99
 # Written by
 # - yeti0904
+# - LordOfTrident
 
 func add_u8 u8 a u8 b -> u8
 	asm return a + b;
@@ -285,4 +286,14 @@ end
 
 func int_greater i64 a i64 b -> u8
 	asm return a > b;
+end
+
+func open_file addr path u8 mode -> addr
+	extern addr fopen addr addr
+	asm return fopen(path, mode? "r" : "w");
+end
+
+func close_file addr file
+	extern void fclose addr
+	asm fclose(file);
 end
