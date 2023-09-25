@@ -2,6 +2,8 @@
 # Written by:
 # - yeti0904
 
+%include "op.ysl"
+
 func memcpy addr dest addr src u64 n
 	let u64 i
 	let u8 byte
@@ -9,7 +11,7 @@ func memcpy addr dest addr src u64 n
 	for i 0 n
 		read_u8 src -> byte
 		write_u8 dest byte
-		inc src
-		inc dest
+		inc src -> src
+		inc dest -> dest
 	end
 end
