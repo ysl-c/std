@@ -1,0 +1,13 @@
+# YSL-C3 Standard Library: Booleans
+# Written by:
+# - yeti0904
+
+let u8 true
+let u8 false
+
+# this sucks lol
+# let statements need initialiser thingies
+func init_bool
+	set true  255
+	set false 0
+end

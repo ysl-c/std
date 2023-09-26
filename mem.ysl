@@ -15,3 +15,99 @@ func memcpy addr dest addr src u64 n
 		inc dest -> dest
 	end
 end
+
+func read_array_u8 addr array u64 index -> u8
+	let u8 ret
+	add array index -> array
+	read_u8 array -> ret
+	return ret
+end
+
+func read_array_u16 addr array u64 index -> u16
+	let u16 ret
+	add array index -> array
+	read_u16 array -> ret
+	return ret
+end
+
+func read_array_u32 addr array u64 index -> u32
+	let u32 ret
+	add array index -> array
+	read_u32 array -> ret
+	return ret
+end
+
+func read_array_u64 addr array u64 index -> u64
+	let u64 ret
+	add array index -> array
+	read_u64 array -> ret
+	return ret
+end
+
+func read_array_i8 addr array u64 index -> i8
+	let i8 ret
+	add array index -> array
+	read_i8 array -> ret
+	return ret
+end
+
+func read_array_i16 addr array u64 index -> i16
+	let i16 ret
+	add array index -> array
+	read_i16 array -> ret
+	return ret
+end
+
+func read_array_i32 addr array u64 index -> i32
+	let i32 ret
+	add array index -> array
+	read_i32 array -> ret
+	return ret
+end
+
+func read_array_i64 addr array u64 index -> i64
+	let i64 ret
+	add array index -> array
+	read_i64 array -> ret
+	return ret
+end
+
+func write_array_u8 addr array u64 index u8 value
+	add array index -> array
+	write_u8 array value
+end
+
+func write_array_u16 addr array u64 index u16 value
+	add array index -> array
+	write_u16 array value
+end
+
+func write_array_u32 addr array u64 index u32 value
+	add array index -> array
+	write_u32 array value
+end
+
+func write_array_u64 addr array u64 index u64 value
+	add array index -> array
+	write_u64 array value
+end
+
+func write_array_i8 addr array u64 index i8 value
+	add array index -> array
+	write_i8 array value
+end
+
+func write_array_i16 addr array u64 index i16 value
+	add array index -> array
+	write_i16 array value
+end
+
+func write_array_i32 addr array u64 index i32 value
+	add array index -> array
+	write_i32 array value
+end
+
+func write_array_i64 addr array u64 index i64 value
+	add array index -> array
+	write_i64 array value
+end

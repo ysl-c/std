@@ -23,10 +23,69 @@ end
 func alloc_string addr src -> addr
 	let u64 len
 	string_length src -> len
+	inc len -> len
 
 	let addr ret
 	alloc string_length -> ret
 
 	memcpy ret src len
 	return ret
+end
+
+func extend_string addr str u64 by -> addr
+	let u64 len
+	string_length str -> len
+	add len by -> len
+	inc len -> len
+	realloc str len -> str
+	return str
+end
+
+func append_string_ch addr str u8 ch -> addr
+	extend_string str 1 -> str
+	let u64 len
+	string_length str -> len
+	write_array_u8 str len ch
+	inc len -> len
+	write_array_u8 str len 0
+	return str
+end
+
+func append_string addr str addr add -> addr
+	let u64 len
+	string_length str -> len
+
+	let u64 i
+	let u8  ch
+	for i 0 len
+		read_array_u8 add i -> ch
+		append_string_ch str ch
+	end
+
+	return str
+end
+
+func string_equals addr a addr b -> u8
+	let u64 lenA
+	let u64 lenB
+	string_length a -> lenA
+	string_length b -> lenB
+
+	if uint_not_equals lenA lenB
+		return 0
+	end
+
+	let u64 i
+	let u8  chA
+	let u8  chB
+	for i 0 lenA
+		read_array_u8 a i -> chA
+		read_array_u8 b i -> chB
+
+		if uint_not_equals chA chB
+			return 0
+		end
+	end
+
+	return 1
 end
